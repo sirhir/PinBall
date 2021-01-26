@@ -60,7 +60,7 @@ public class FripperController : MonoBehaviour
         }
 
         if (tag == "RightFripperTag"){
-            if ( rightButton|| rightTouch )
+            if ( rightButton || rightTouch )
             {
                 SetAngle (this.flickAngle);
             }else{
