@@ -7,13 +7,12 @@ public class ScoreCalculator : MonoBehaviour
 {
     private GameObject scoreText;
 
-    private int currentScore;
+    private int score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         this.scoreText = GameObject.Find("ScoreText");
-        this.currentScore = 0;
     }
 
     // Update is called once per frame
@@ -25,27 +24,24 @@ public class ScoreCalculator : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        int getScore = 0;//test
         // タグによって得られる点数を変える
         if (other.gameObject.tag == "SmallStarTag")
         {
-            getScore = 1;
+            score += 1;
         }
         else if (other.gameObject.tag == "LargeStarTag")
         {
-            getScore = 20;
+            score += 20;
         }
         else if(other.gameObject.tag == "SmallCloudTag")
         {
-            getScore = 5;
+            score += 5;
         }
         else if(other.gameObject.tag == "LargeCloudTag")
         {
-            getScore = 3;
+            score += 3;
         }
 
-        this.currentScore += getScore;
-
-        this.scoreText.GetComponent<Text>().text = currentScore.ToString();
+        this.scoreText.GetComponent<Text>().text = "score: " + score;
     }
 }
