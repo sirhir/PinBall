@@ -19,7 +19,7 @@ public class ScoreCalculator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.scoreText.GetComponent<Text>().text = currentScore.ToString();
+        
     }
 
 
@@ -45,5 +45,7 @@ public class ScoreCalculator : MonoBehaviour
         }
 
         this.currentScore += getScore;
+
+        this.scoreText.GetComponent<Text>().text = currentScore.ToString();
     }
 }
